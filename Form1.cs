@@ -1,3 +1,5 @@
+using System.Numerics;
+
 namespace lab_1_fact
 {
     public partial class Form1 : Form
@@ -15,9 +17,22 @@ namespace lab_1_fact
         private void button1_Click(object sender, EventArgs e)
         {
             int n = int.Parse(textBox1.Text);
-            static long fa (int n) 
+
+            
+
+            static BigInteger fa (int n) 
             {
-                long res;
+                if (n < 0)
+            {
+                    {MessageBox.Show("Ошибка", "Факториала отрицательных чисел не существует", MessageBoxButtons.OK, MessageBoxIcon.Error);}
+            }
+
+            if (n == 0)
+            {
+                    return 1;
+                    
+             }
+                BigInteger res;
                 res = 1;
                 for(int i = 1; i <= n; i++)
                 {
@@ -25,6 +40,7 @@ namespace lab_1_fact
                 }
                 return res;
             }
+            
             textBox2.Text = n.ToString() + "! = " + fa(n);
         }
     }
